@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصتي التعليمية الذكية 🎓</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- زرار سري أسفل الصفحة لفتح الخزنة -->
+        <button id="admin-vault-btn" onclick="openVaultPasswordPrompt()">🔑 خزنة النتائج</button>
+
+        <!-- المرحلة 1: تسجيل اسم الطالب ومواصفات التحدي -->
+        <div id="welcome-screen" class="card">
+            <h2>مرحباً بك في المنصة التعليمية الذكية 🎓</h2>
+            
+            <div class="specs-box">
+                <h3>📋 مواصفات وشروط التحدي:</h3>
+                <ul>
+                    <li>🔢 <strong>عدد الأسئلة:</strong> 20 سؤالاً تدرج من السهل للمتقدم.</li>
+                    <li>⏱️ <strong>عداد الوقت:</strong> 15 ثانية فقط للتفكير في كل سؤال.</li>
+                    <li>🟢 <strong>المستويات:</strong> 3 مستويات (HTML ثم CSS ثم JavaScript).</li>
+                    <li>❌ <strong>قانون الخسارة:</strong> إذا أخطأت في <strong>3 أسئلة</strong> يتم إقصاؤك فوراً!</li>
+                    <li>⭐ <strong>نظام التقييم:</strong> نجوم تفاعلية تمنحك تقييمك النهائي حسب أدائك.</li>
+                </ul>
+            </div>
+
+            <p>من فضلك أدخل اسمك لبدء التحدي الآن:</p>
+            <input type="text" id="student-name" placeholder="اكتب اسمك هنا...">
+            <button onclick="startQuiz()">ابدأ الاختبار فوراً 🚀</button>
+        </div>
+
+        <!-- المرحلة 2: الاختبار التفاعلي -->
+        <div id="quiz-screen" class="card hidden">
+            <div class="quiz-header">
+                <span id="level-badge" class="badge">مستوى</span>
+                <div id="hearts-box">❤️ المحاولات: <span id="hearts">3</span></div>
+                <div id="timer-box">⏱️ <span id="timer">15</span>ث</div>
+            </div>
+            
+            <div id="question-container">
+                <p id="question-text">السؤال يظهر هنا</p>
+                <div id="options-container"></div>
+            </div>
+            
+            <div class="quiz-footer">
+                <span id="progress">سؤال 1 من 20</span>
+            </div>
+        </div>
+
+        <!-- المرحلة 3: النتيجة النهائية والنجوم -->
+        <div id="result-screen" class="card hidden">
+            <h2 id="result-title">🎉 النتيجة النهائية 🎉</h2>
+            <div id="stars-container" class="stars">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+            <p id="congrats-text"></p>
+            <div class="score-box">
+                <span id="final-score">0</span> / <span id="total-questions">20</span>
+            </div>
+            <button onclick="restartApp()">إعادة التحدي 🔄</button>
+        </div>
+
+        <!-- شاشة الخزنة السرية (لوحة الإشراف) -->
+        <div id="vault-screen" class="card hidden">
+            <h2>🔐 خزنة درجات الطلاب الممتحنين</h2>
+            <p>هذه اللوحة سرية وتظهر نتائج جميع المحاولات المخزنة.</p>
+            
+            <div class="table-responsive">
+                <table id="vault-table">
+                    <thead>
+                        <tr>
+                            <th>اسم الطالب</th>
+                            <th>النتيجة</th>
+                            <th>الحالة</th>
+                            <th>التاريخ والوقت</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vault-tbody">
+                        <!-- البيانات هتنزل هنا بالجافا سكريبت -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="vault-actions">
+                <button class="btn-secondary" onclick="closeVault()">إغلاق الخزنة ❌</button>
+                <button class="btn-danger" onclick="clearVaultData()">تفريغ الخزنة 🗑️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

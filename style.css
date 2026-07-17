@@ -1,0 +1,322 @@
+/* إعادة ضبط التنسيقات الأساسية */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    position: relative;
+    padding-bottom: 50px; /* مسافة للزرار السري في الأسفل */
+}
+
+/* التنسيق الرئيسي للكروت - يظهر كارت واحد فقط في المرة */
+.card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 🛑 الكلاس السحري المسؤول عن إخفاء الشاشات الأخرى - تأكد أنه مكتوب كذا بالظبط */
+.hidden {
+    display: none !important;
+}
+
+/* تحسين حركة ظهور الكروت */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10deg); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    color: #64748b;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+/* لوحة مواصفات التحدي وتنسيق القائمة */
+.specs-box {
+    text-align: right;
+    background-color: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.specs-box h3 {
+    color: #1e293b;
+    margin-bottom: 15px;
+    font-size: 17px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.specs-box ul {
+    list-style: none; /* إخفاء النقاط التلقائية للمتصفح لمنع التداخل مع الإيموجي */
+    padding: 0;
+}
+
+.specs-box li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* عناصر الإدخال والأزرار */
+input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 20px;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 14px 25px;
+    font-size: 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
+}
+
+/* الهيدر الخاص بالوقت والمستويات والمحاولات */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.bg-easy { background-color: #2ecc71; }
+.bg-medium { background-color: #f39c12; }
+.bg-hard { background-color: #e74c3c; }
+
+#hearts-box {
+    font-size: 14px;
+    font-weight: bold;
+    color: #c0392b;
+    background: #fde8e8;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+#timer-box {
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    background: #edf2f7;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+#question-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* أزرار الاختيارات */
+#options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.option-btn {
+    background-color: #f8fafc;
+    color: #334155;
+    border: 2px solid #e2e8f0;
+    text-align: right;
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    transition: all 0.2s ease;
+}
+
+.option-btn:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateX(-5px); /* تأثير حركة خفيف جهة اليمين */
+}
+
+/* الألوان التفاعلية للإجابات */
+.correct-flash {
+    background: linear-gradient(135deg, #2ecc71, #27ae60) !important;
+    border-color: #27ae60 !important;
+    color: white !important;
+}
+
+.wrong-flash {
+    background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+    border-color: #c0392b !important;
+    color: white !important;
+}
+
+.quiz-footer {
+    margin-top: 15px;
+    color: #94a3b8;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* النجوم */
+.stars {
+    font-size: 45px;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+}
+
+.star {
+    display: inline-block;
+    color: #e2e8f0; /* لون رمادي مطفأ */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.star.active {
+    color: #f1c40f; /* لون ذهبي مضيء */
+    transform: scale(1.2);
+}
+
+.score-box {
+    font-size: 42px;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 25px 0;
+}
+
+/* جدول الخزنة السرية */
+.table-responsive {
+    max-height: 350px;
+    overflow-y: auto;
+    margin: 20px 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+#vault-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: right;
+    font-size: 15px;
+}
+
+#vault-table th, #vault-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+#vault-table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+#vault-table tr:hover {
+    background-color: #f8fafc;
+}
+
+.vault-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-secondary { background: #64748b; }
+.btn-secondary:hover { background: #475569; }
+.btn-danger { background: #ef4444; }
+.btn-danger:hover { background: #dc2626; }
+
+.status-win { color: #16a34a; font-weight: bold; }
+.status-lose { color: #dc2626; font-weight: bold; }
+
+/* زر الخزنة السري المطفأ أسفل الصفحة */
+#admin-vault-btn {
+    background: transparent;
+    color: #94a3b8;
+    border: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    font-size: 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: auto;
+    position: absolute;
+    bottom: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: 500;
+    box-shadow: none;
+}
+
+#admin-vault-btn:hover {
+    background-color: #ffffff;
+    color: #1e293b;
+    border-color: #94a3b8;
+    transform: translateX(-50%) translateY(-1px);
+}
